@@ -2,7 +2,6 @@ const { Router } = require('express')
 const bodyParser = require('body-parser')
 const filterPayload = require('./utils.js')
 
-// email service function 
 const apiService = () => {
   let api = Router()
   api.use(bodyParser.json())
