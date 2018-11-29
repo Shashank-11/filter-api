@@ -8,11 +8,16 @@ The application is a JSON-based web service.
 ## Building the app
 ```
 npm install 
+
 ```
+> to install all the dependencies with
 
-> install all the dependencies with
+```
+npm start 
 
-npm start
+```
+> to start the application
+
 ```
 localhost:5000
 
