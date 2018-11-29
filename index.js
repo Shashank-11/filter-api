@@ -6,7 +6,17 @@ const port = process.env.PORT || 5000;
 
 // to enable CORS
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+
+app.use((err, req, res, next) => {
+  if (err) {
+    res
+      .status(400)
+      .send({ error: "Could not decode request: JSON parsing failed" });
+  } else {
+    next()
+  }
+})
 
 // API call to filter
 app.post("/", (req, res) => {
@@ -31,4 +41,6 @@ app.post("/", (req, res) => {
   }
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+const server = app.listen(port, () => console.log(`Listening on port ${port}`));
+
+module.exports = server;
