@@ -2,12 +2,15 @@ const request= require('supertest')
 let server;
 
 describe('test filter api', () => {
+
   beforeEach(() => {
     server = require('../index');
   })
+  
   afterEach(() => {
     server.close()
   })
+
   describe('POST /', () => {
 
     it('should return error', async () => {
@@ -23,8 +26,8 @@ describe('test filter api', () => {
  
      })
     
-    
     it('should return filtered results', async () => {
+
       const payload = {
         "payload": [
           {
@@ -51,6 +54,7 @@ describe('test filter api', () => {
           }
         ]
       }
+
      const res = await request(server)
       .post('/')
       .send(payload);
@@ -69,7 +73,6 @@ describe('test filter api', () => {
           }
         ]
       });
-
     })
   })
 });
